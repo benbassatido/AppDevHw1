@@ -349,6 +349,8 @@
         android:layout_above="@id/btn_right"
         android:layout_marginStart="290dp" />
 
+
+
     <ImageButton
         android:id="@+id/btn_left"
         android:layout_width="@dimen/btn_width_height"
