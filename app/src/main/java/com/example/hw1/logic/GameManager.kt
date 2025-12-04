@@ -2,7 +2,6 @@ package com.example.hw1
 
 import android.view.View
 import android.widget.ImageView
-import android.widget.Toast
 import com.example.hw1.utilities.Timer
 
 class GameManager(
@@ -15,7 +14,6 @@ class GameManager(
 
     companion object {
         private const val ROWS = 6
-
         private const val COLS = 3
 
         private const val TICK_DELAY = 800L
@@ -27,35 +25,37 @@ class GameManager(
 
         private const val MAX_LIVES = 3
     }
+
     private var isGameOver = false
-    private val board = Array(ROWS){ BooleanArray(COLS) }
+
     var currentLane: Int = START_LANE
         private set
 
     private var lives: Int = MAX_LIVES
 
-
     private val timer = Timer(TICK_DELAY) {
         gameTick()
     }
 
+
+    private fun indexOf(row: Int, col: Int): Int = row * COLS + col
+
+
     fun startGame() {
+        isGameOver = false
         currentLane = START_LANE
         lives = MAX_LIVES
         updateCarUi()
         updateHeartsUi()
-        clearBoard()
         spawnRandomTwoNails(INDEX_COUNT)
-        updateNailsUi()
         timer.start()
     }
 
-    fun stopGame(){
+    fun stopGame() {
         isGameOver = true
         timer.stop()
-
-
     }
+
 
     fun moveCarLeft() {
         if (isGameOver) return
@@ -80,52 +80,39 @@ class GameManager(
         }
     }
 
-    fun gameTick() {
+
+    private fun gameTick() {
+        if (isGameOver) return
         handleBottomRow()
         stepNailsDown()
-        updateNailsUi()
     }
 
 
     private fun clearBoard() {
-        for (r in 0 until ROWS)
-            for (c in 0 until COLS)
-                board[r][c] = false
-    }
-    private fun clearBottomRow() {
-        for (col in 0 until COLS) {
-            board[ROWS - 1][col] = false
+        for (nail in nails) {
+            nail.visibility = View.INVISIBLE
         }
     }
-
 
     private fun spawnRandomTwoNails(count: Int) {
         clearBoard()
 
-        val allowedIndexes = (0..MAX_NAIL_INDEX).toList().shuffled().take(count)
-        for (index in allowedIndexes){
-            val row = index / COLS
-            val cols = index % COLS
-            board[row][cols] = true
+        val allowedIndexes = (0..MAX_NAIL_INDEX).shuffled().take(count)
+        for (index in allowedIndexes) {
+            nails[index].visibility = View.VISIBLE
         }
     }
 
     private fun spawnNailInTopRow() {
-        val emptyCols = (0 until COLS).filter {col -> !board[0][col]
+        val emptyCols = (0 until COLS).filter { col ->
+            val index = indexOf(0, col)
+            nails[index].visibility == View.INVISIBLE
         }
+
         if (emptyCols.isNotEmpty()) {
             val chosenCol = emptyCols.random()
-            board[0][chosenCol] = true
-        }
-    }
-
-    private fun handleBottomRow() {
-        val bottomRow = ROWS - 1
-        for (col in 0 until COLS) {
-            if (board[bottomRow][col]) {
-                board[bottomRow][col] = false
-                spawnNailInTopRow()
-            }
+            val index = indexOf(0, chosenCol)
+            nails[index].visibility = View.VISIBLE
         }
     }
 
@@ -133,46 +120,51 @@ class GameManager(
 
         for (row in ROWS - 2 downTo 0) {
             for (col in 0 until COLS) {
-                if (!board[row][col])
+
+                val index = indexOf(row, col)
+                if (nails[index].visibility != View.VISIBLE)
                     continue
 
                 val newRow = row + 1
+                val newIndex = indexOf(newRow, col)
 
                 if (newRow == ROWS - 1 && col == currentLane) {
-                    board[row][col] = false
+                    nails[index].visibility = View.INVISIBLE
                     onCarHit()
                     spawnNailInTopRow()
-                } else {
-                    board[row][col] = false
-                    board[newRow][col] = true
+                    continue
                 }
+
+                nails[index].visibility = View.INVISIBLE
+                nails[newIndex].visibility = View.VISIBLE
             }
         }
     }
+
+    private fun handleBottomRow() {
+        val bottomRow = ROWS - 1
+
+        for (col in 0 until COLS) {
+            val index = indexOf(bottomRow, col)
+
+            if (nails[index].visibility == View.VISIBLE) {
+                nails[index].visibility = View.INVISIBLE
+                spawnNailInTopRow()
+            }
+        }
+    }
+
 
     private fun onCarHit() {
         if (lives > 0) {
             lives--
             updateHeartsUi()
         }
+
         onCarHitListener?.invoke()
+
         if (lives <= 0) {
             stopGame()
-        }
-    }
-
-    private fun updateNailsUi() {
-        for (nail in nails){
-            nail.visibility = View.INVISIBLE
-            }
-        var index = 0
-        for (row in 0 until ROWS) {
-            for (col in 0 until COLS) {
-                if (board[row][col]) {
-                    nails[index].visibility = View.VISIBLE
-                }
-                index++
-            }
         }
     }
 
@@ -180,11 +172,6 @@ class GameManager(
         for (i in hearts.indices) {
             hearts[i].visibility =
                 if (i < lives) View.VISIBLE else View.INVISIBLE
-
         }
     }
-
-
-
-
 }
