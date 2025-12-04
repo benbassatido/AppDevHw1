@@ -170,7 +170,8 @@ class GameManager(
 
     private fun updateHeartsUi() {
         for (i in hearts.indices) {
-            hearts[i].visibility =
+            val index = hearts.size - 1 - i
+            hearts[index].visibility =
                 if (i < lives) View.VISIBLE else View.INVISIBLE
         }
     }
