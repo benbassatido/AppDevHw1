@@ -60,8 +60,6 @@ class MainActivity : AppCompatActivity() {
         gameManager.onCarHitListener = {
             runOnUiThread {
                 Toast.makeText(this, "Crash!", Toast.LENGTH_SHORT).show()
-                vibratePhone()
-
             }
         }
 
@@ -84,10 +82,5 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-        @Suppress("DEPRECATION")
-        private fun vibratePhone() {
-            val vibrator = getSystemService(VIBRATOR_SERVICE) as android.os.Vibrator
-            vibrator.vibrate(150)
-        }
-    }
+}
 
