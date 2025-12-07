@@ -33,6 +33,8 @@ class GameManager(
 
     private var lives: Int = MAX_LIVES
 
+    private var tickCount = 0
+
     private val timer = Timer(TICK_DELAY) {
         gameTick()
     }
@@ -45,6 +47,7 @@ class GameManager(
         isGameOver = false
         currentLane = START_LANE
         lives = MAX_LIVES
+        tickCount = 0
         updateCarUi()
         updateHeartsUi()
         spawnRandomTwoNails(INDEX_COUNT)
@@ -83,8 +86,13 @@ class GameManager(
 
     private fun gameTick() {
         if (isGameOver) return
+        tickCount++
         handleBottomRow()
         stepNailsDown()
+
+        if (tickCount % 2 == 0) {
+            spawnNailInTopRow()
+        }
     }
 
 
@@ -131,7 +139,6 @@ class GameManager(
                 if (newRow == ROWS - 1 && col == currentLane) {
                     nails[index].visibility = View.INVISIBLE
                     onCarHit()
-                    spawnNailInTopRow()
                     continue
                 }
 
@@ -149,7 +156,6 @@ class GameManager(
 
             if (nails[index].visibility == View.VISIBLE) {
                 nails[index].visibility = View.INVISIBLE
-                spawnNailInTopRow()
             }
         }
     }
