@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/asphalt"
+    android:background="@drawable/road"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
@@ -330,24 +330,6 @@
             android:scaleType="fitCenter"/>
 
     </GridLayout>
-
-    <View
-        android:id="@+id/laneLine1"
-        android:layout_width="4dp"
-        android:layout_height="match_parent"
-        android:background="#FFFFFF"
-        android:layout_below="@id/heartsLayout"
-        android:layout_above="@id/btn_right"
-        android:layout_marginStart = "145dp" />
-
-    <View
-        android:id="@+id/laneLine2"
-        android:layout_width="4dp"
-        android:layout_height="match_parent"
-        android:background="#FFFFFF"
-        android:layout_below="@id/heartsLayout"
-        android:layout_above="@id/btn_right"
-        android:layout_marginStart="290dp" />
 
 
     <ImageButton
