@@ -2,4 +2,11 @@
     <string name="app_name">hw1</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="move_left">Move Left</string>
+    <string name="move_right">Move Right</string>
+    <string name="car">Player Car</string>
+    <string name="obstacle">Obstacle</string>
+    <string name="heart">Life</string>
+    <string name="background">Background</string>
+    <string name="empty">Empty</string>
 </resources>

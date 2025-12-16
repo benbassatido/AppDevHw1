@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/road"
+    android:contentDescription="@string/background"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
@@ -18,27 +19,28 @@
         android:layout_marginTop="@dimen/default_margin">
 
         <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/main_IMG_heart0"
-        android:layout_width="@dimen/heart_size"
-        android:layout_height="@dimen/heart_size"
-        app:srcCompat="@drawable/heart" />
+            android:id="@+id/main_IMG_heart0"
+            android:layout_width="@dimen/heart_size"
+            android:layout_height="@dimen/heart_size"
+            android:contentDescription="@string/heart"
+            app:srcCompat="@drawable/heart" />
 
         <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/main_IMG_heart1"
-        android:layout_width="@dimen/heart_size"
-        android:layout_height="@dimen/heart_size"
-        android:layout_marginHorizontal="@dimen/default_margin"
-        app:srcCompat="@drawable/heart" />
+            android:id="@+id/main_IMG_heart1"
+            android:layout_width="@dimen/heart_size"
+            android:layout_height="@dimen/heart_size"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            android:contentDescription="@string/heart"
+            app:srcCompat="@drawable/heart" />
 
         <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/main_IMG_heart2"
-        android:layout_width="@dimen/heart_size"
-        android:layout_height="@dimen/heart_size"
-        app:srcCompat="@drawable/heart" />
+            android:id="@+id/main_IMG_heart2"
+            android:layout_width="@dimen/heart_size"
+            android:layout_height="@dimen/heart_size"
+            android:contentDescription="@string/heart"
+            app:srcCompat="@drawable/heart" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
-
-
 
 
     <GridLayout
@@ -63,6 +65,7 @@
             android:layout_column="0"
             android:gravity="center"
             android:src="@drawable/spike_nails"
+            android:contentDescription="@string/obstacle"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
 
@@ -77,6 +80,7 @@
             android:layout_column="1"
             android:gravity="center"
             android:src="@drawable/spike_nails"
+            android:contentDescription="@string/obstacle"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
 
@@ -90,6 +94,7 @@
             android:layout_column="2"
             android:gravity="center"
             android:src="@drawable/spike_nails"
+            android:contentDescription="@string/obstacle"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
 
@@ -103,6 +108,7 @@
             android:layout_column="0"
             android:gravity="center"
             android:src="@drawable/spike_nails"
+            android:contentDescription="@string/obstacle"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
 
@@ -116,6 +122,7 @@
             android:layout_column="1"
             android:gravity="center"
             android:src="@drawable/spike_nails"
+            android:contentDescription="@string/obstacle"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
 
@@ -129,6 +136,7 @@
             android:layout_column="2"
             android:gravity="center"
             android:src="@drawable/spike_nails"
+            android:contentDescription="@string/obstacle"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
 
@@ -142,6 +150,7 @@
             android:layout_column="0"
             android:gravity="center"
             android:src="@drawable/spike_nails"
+            android:contentDescription="@string/obstacle"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
 
@@ -155,6 +164,7 @@
             android:layout_column="1"
             android:gravity="center"
             android:src="@drawable/spike_nails"
+            android:contentDescription="@string/obstacle"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
 
@@ -168,6 +178,7 @@
             android:layout_column="2"
             android:gravity="center"
             android:src="@drawable/spike_nails"
+            android:contentDescription="@string/obstacle"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
 
@@ -181,6 +192,7 @@
             android:layout_column="0"
             android:gravity="center"
             android:src="@drawable/spike_nails"
+            android:contentDescription="@string/obstacle"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
 
@@ -194,6 +206,7 @@
             android:layout_column="1"
             android:gravity="center"
             android:src="@drawable/spike_nails"
+            android:contentDescription="@string/obstacle"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
 
@@ -208,6 +221,7 @@
             android:layout_column="2"
             android:gravity="center"
             android:src="@drawable/spike_nails"
+            android:contentDescription="@string/obstacle"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
 
@@ -221,6 +235,7 @@
             android:layout_column="0"
             android:gravity="center"
             android:src="@drawable/spike_nails"
+            android:contentDescription="@string/obstacle"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
 
@@ -234,6 +249,7 @@
             android:layout_column="1"
             android:gravity="center"
             android:src="@drawable/spike_nails"
+            android:contentDescription="@string/obstacle"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
 
@@ -247,6 +263,7 @@
             android:layout_column="2"
             android:gravity="center"
             android:src="@drawable/spike_nails"
+            android:contentDescription="@string/obstacle"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
 
@@ -261,6 +278,7 @@
             android:layout_column="0"
             android:gravity="center"
             android:src="@drawable/spike_nails"
+            android:contentDescription="@string/obstacle"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
 
@@ -275,6 +293,7 @@
             android:layout_column="1"
             android:gravity="center"
             android:src="@drawable/spike_nails"
+            android:contentDescription="@string/obstacle"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
 
@@ -288,6 +307,7 @@
             android:layout_column="2"
             android:gravity="center"
             android:src="@drawable/spike_nails"
+            android:contentDescription="@string/obstacle"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
 
@@ -301,6 +321,7 @@
             android:layout_column="0"
             android:gravity="center"
             android:src="@drawable/car"
+            android:contentDescription="@string/car"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
 
@@ -314,6 +335,7 @@
             android:layout_column="1"
             android:gravity="center"
             android:src="@drawable/car"
+            android:contentDescription="@string/car"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
         <ImageView
@@ -326,6 +348,7 @@
             android:layout_column="2"
             android:gravity="center"
             android:src="@drawable/car"
+            android:contentDescription="@string/car"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
 
@@ -337,6 +360,7 @@
         android:layout_width="@dimen/btn_width_height"
         android:layout_height="@dimen/btn_width_height"
         android:src="@drawable/left_arrow"
+        android:contentDescription="@string/move_left"
         android:background="@android:color/transparent"
         android:scaleType="centerInside"
         android:layout_alignParentStart="true"
@@ -348,6 +372,7 @@
         android:layout_width="@dimen/btn_width_height"
         android:layout_height="@dimen/btn_width_height"
         android:src="@drawable/right_arrow"
+        android:contentDescription="@string/move_right"
         android:background="@android:color/transparent"
         android:scaleType="centerInside"
         android:layout_alignParentEnd="true"
@@ -355,6 +380,3 @@
         android:layout_margin="16dp" />
 
 </RelativeLayout>
-
-
-
